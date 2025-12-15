@@ -1,5 +1,33 @@
 # Perl with Unicode for Windows
 
+Windowsにおいて、UnicodeバージョンのPerlにするためのプロジェクト。
+
+
+## インストール方法
+
+StrawberyPerlを事前にインストールしておくこと。
+
+```ps1
+git clone git@github.com:sunadarake/Perl-with-Unicode-for-Windows.git
+cd Perl-with-Unicode-for-Windows
+Perl-with-Unicode-for-Windows
+
+# uperl.exeができる。StrawberyPerlのperlと置き換えて、
+# オリジナルのperlはperl_original.exeに変換する。
+.\build_uperl.ps1
+
+# stdin/outやファイル操作をUnicode対応する。他の便利メソッドも用意する。
+cpanm git@github.com:sunadarake/p5-X.git
+
+# 日本語と絵文字が表示される
+perl -MX -CAS -E 'say q{僕はperlが大好きです💛}'
+```
+
+
+## オリジナルの文章
+
+以下はオリジナルの文章。
+
 This repository contains instructions for recompiling the `perl.exe` executable **for Windows** (of the chosen Perl distribution), in order to make it **compatible with command line Unicode characters in Windows**:   
 Please note that actual distributions have not cared for Unicode treatment of Unicode in Windows, where it uses a UTF-16 codification, whereas the Perl cmdline executable as ported from linux (where these Unicode issues don't happen!) can't manage UTF-16 (or any other codification) at all in Windows.
 
